@@ -10,7 +10,7 @@ The relation between "M_4" and the QNM frequency "\omega" is in the "Nf4_QNM.nb"
 
 4. The "q" variable in the Mathematica files is not the same as in the paper. In the SW notation, "q" is related to the complexified coupling constant. To be more precise, we have q=t^{1/2}, where "t" is the instanton counting parameter used in the paper.
 
-5. In the (A)dS Mathematica files, we use the following notation for the multiple polylogarithms in a single variable: Li[{s1,s2,...}, 1-z].
+5. In the (A)dS Mathematica files, we use the following notation for the multiple polylogarithms in a single variable: Li[{s1,s2,...}, z].
 
 6. In the "Robin" Mathematica files, we use the following notation for the multiple polylogarithms in several variables with s1=s2=...=1: Li1[{z1,z2,...}].
 
