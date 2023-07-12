@@ -9,7 +9,7 @@ In each of the three folders, there is the "Executable files" subfolder. To proc
 
 2. Open the "Nf4_exe.nb" file - it will run all other files for you (except the "SW_to_Heun.nb" file).
 
-3. Specify your choice of the quantum numbers n0,l,s using "nlSub" (remember that n>=0, l>=s>=0). For example, the choice n0=0, l=s=1 is given by nlSub={n0 -> 0, l -> 1, s -> 1}.
+3. Specify your choice of the quantum numbers n0, l, s using "nlSub" (remember that n>=0, l>=s>=0). For example, the choice n0=0, l=s=1 is given by nlSub={n0 -> 0, l -> 1, s -> 1}.
 
 4. Specify the maximum order "tMax" to which the wave functions will be computed. The range of values for "tMax" is between 1 and 9.
 
