@@ -13,7 +13,7 @@ In each of the three folders, there is the "Executable files" subfolder. To proc
 
 4. Specify the maximum order "tMax" to which the wave functions will be computed. The range of values for "tMax" is between 1 and 9.
 
-5. The variable "MaxKernels" controls the number of kernels used during the ParallelTable computation. By default, it is set to the number of processor cores available on your computer. You can increase it to maximize the efficiency.
+5. The variable "MaxKernels" controls the number of kernels used during the ParallelTable computation. By default, it is set to one. You can increase it to maximize the efficiency.
 
 6. After you defined all three variables ("nlSub", "tMax", "MaxKernels"), start executing each cell in the "Nf4_exe.nb" file step by step. You can Shift-select all the cells and press Shift-Enter to put them in a queue.
 
