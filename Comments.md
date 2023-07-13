@@ -1,4 +1,4 @@
-First, we comment on the different notations used in the Mathematica files and the paper "Black hole perturbation theory and multiple polylogarithms" (points 1-6). Next, we provide general comments about the structure of our program and the files involved (points 7-10).
+First, we comment on the different notations used in the Mathematica files and the paper "Black hole perturbation theory and multiple polylogarithms" (points 1-6). Next, we provide general comments about the structure of our program and the files involved (points 7-11).
 
 1. We use the Seiberg-Witten form of the relevant spectral curve in the Mathematica files. The Heun form is used in the paper and is related to the SW form by a simple wave function transformation. This transformation can be found in the "SW_to_Heun.nb" file.
 
@@ -20,4 +20,6 @@ The relation between "M_4" and the QNM frequency "\omega" is in the "Nf4_QNM.nb"
 
 9. Inside "n=...,l=...,s=..." subfolders, the following output files are present: "cSubn_l_s" (or "cSoln_l_s"), "\muaSubn_l_s" (or "\muaSoln_l_s"), "WFN4zln_l_s", "WFN4zrn_l_s", "HeunWFLn_l_s", and "HeunWFRn_l_s". The first file, "cSubn_l_s" (or "cSoln_l_s"), contains the results for the integration constants. The second file, "\muaSubn_l_s" (or "\muaSoln_l_s"), contains the results obtained from the continuity condition.  In the "WFN4zln_l_s" and "WFN4zrn_l_s" files, one can find the coefficients in the "q" expansion of the SW wave functions in the left and right regions, respectively. In the "HeunWFLn_l_s" and "HeunWFRn_l_s" files, one can find the coefficients in the "t" expansion of the Heun wave functions in the left and right regions, respectively. 
 
-10. To compute relevant values of multiple polylogarithms at higher weights, we use Maple 2022.2.
+10. In the folder "Robin General m" there are the following files: "WFL_Robin", "WFM_Robin", and "WFR_Robin" contain the expansion in \alpha=1/R_h of the wave functions in the left, middle, and right regions, respectively; "Robin_QNM" contains the results for the coefficients \omega_k of the QNM frequencies; "Robin_QNM_hydro" contains the results for the coefficients \mathfrak{w}_k of the QNM frequencies in hydrodynamic limit; "crSub_7" contains the results for the integration constants in the right region; "\omegaSol_7" contains not simplified results for the QNM frequencies.
+ 
+11. To compute relevant values of multiple polylogarithms at higher weights, we use Maple 2022.2.
