@@ -1,5 +1,5 @@
 # BH_PolyLog
-Mathematica Program to compute (A)dS QNM frequencies.
+Mathematica Program to analytically compute (A)dS QNM frequencies.
 To compute the dS QNM frequencies - use the folder "dS General n,l,s".
 To compute the AdS QNM frequencies with negative real part - use "AdS General n,l,s negative".
 To compute the AdS QNM frequencies with positive real part - use "AdS General n,l,s positive".
