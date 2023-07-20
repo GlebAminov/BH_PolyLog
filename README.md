@@ -7,7 +7,7 @@ In each of the three folders, there is the "Executable files" subfolder. To proc
 
 1. Copy all the files from the "Executable files" subfolder into a new folder.
 
-2. Open the "Nf4_exe.nb" file - it will run all other files for you (except the "SW_to_Heun.nb" file).
+2. Open the "Nf4_exe.nb" file - it will run all other files for you (except the "SW_to_Heun.nb" file, see step 9).
 
 3. Specify your choice of the quantum numbers n0, l, s using "nlSub" (remember that n>=0, l>=s>=0). For example, the choice n0=0, l=s=1 is given by nlSub={n0 -> 0, l -> 1, s -> 1}.
 
