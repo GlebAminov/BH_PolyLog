@@ -1,0 +1,18 @@
+{Subscript[\[Mu], 2] -> -1/2, Subscript[\[Mu], 4] -> 3/8, 
+ Subscript[ar, 2] -> 1/2 - Log[q], Subscript[\[Mu], 6] -> 9/16, 
+ Subscript[ar, 4] -> (-27 - Pi^2 + 6*Log[q] + 12*Log[q]^2)/24, 
+ Subscript[\[Mu], 8] -> 127/128 + Log[q]/4, 
+ Subscript[ar, 6] -> (-8*Pi^2 + 2*(51 + Pi^2)*Log[q] - 24*Log[q]^2 - 
+    8*Log[q]^3 - 3*(45 + 4*Zeta[3]))/48, Subscript[\[Mu], 10] -> 
+  (479 - 8*Pi^2 + 336*Log[q])/256, Subscript[ar, 8] -> 
+  (-4575 - 635*Pi^2 - 3*Pi^4 - 20*(99 + 2*Pi^2)*Log[q]^2 + 560*Log[q]^3 + 
+    80*Log[q]^4 - 1560*Zeta[3] + 10*Log[q]*(387 + 26*Pi^2 + 48*Zeta[3]))/
+   1920, Subscript[\[Mu], 12] -> (11493 - 592*Pi^2 + 12720*Log[q] + 
+    960*Log[q]^2 - 288*Zeta[3])/3072, Subscript[ar, 10] -> 
+  (40*(45 + 2*Pi^2)*Log[q]^3 - 1200*Log[q]^4 - 96*Log[q]^5 - 
+    120*Log[q]^2*(-66 + 5*Pi^2 + 12*Zeta[3]) + 
+    6*Log[q]*(-4155 + 265*Pi^2 + 3*Pi^4 + 1200*Zeta[3]) - 
+    15*(Pi^4 + Pi^2*(274 - 8*Zeta[3]) + 3*(-45 + 308*Zeta[3] + 48*Zeta[5])))/
+   11520, Subscript[\[Mu], 14] -> 
+  (-22000*Pi^2 - 16*Pi^4 - 480*(-701 + 5*Pi^2)*Log[q] + 65760*Log[q]^2 + 
+    45*(5283 - 400*Zeta[3]))/30720}

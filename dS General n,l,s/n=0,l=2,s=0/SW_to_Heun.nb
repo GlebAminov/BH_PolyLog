@@ -1,0 +1,2151 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     99883,       2143]
+NotebookOptionsPosition[     97118,       2096]
+NotebookOutlinePosition[     97560,       2112]
+CellTagsIndexPosition[     97517,       2109]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SPack", "=", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nlSub", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"n0", "->", "0"}], ",", 
+       RowBox[{"l", "\[Rule]", "2"}], ",", 
+       RowBox[{"s", "\[Rule]", "0"}]}], "}"}]}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"WFLnls", "=", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<WFN4zl\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"n0", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"l", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"s", "/.", "nlSub"}], "]"}], ",", "\"\<.m\>\""}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"WFRnls", "=", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<WFN4zr\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"n0", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"l", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"s", "/.", "nlSub"}], "]"}], ",", "\"\<.m\>\""}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"HWFL", "=", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<HeunWFL\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"n0", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"l", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"s", "/.", "nlSub"}], "]"}], ",", "\"\<.m\>\""}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"HWFR", "=", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<HeunWFR\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"n0", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"l", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+       RowBox[{"ToString", "[", 
+        RowBox[{"s", "/.", "nlSub"}], "]"}], ",", "\"\<.m\>\""}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"SPack", ",", "WFLnls"}], "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"SPack", ",", "WFRnls"}], "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"cSol", "=", 
+     RowBox[{"Get", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"SPack", ",", "\"\<cSol\>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"n0", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"l", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"s", "/.", "nlSub"}], "]"}]}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[Mu]aSol", "=", 
+     RowBox[{"Get", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"SPack", ",", "\"\<\[Mu]aSol\>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"n0", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"l", "/.", "nlSub"}], "]"}], ",", "\"\<_\>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"s", "/.", "nlSub"}], "]"}]}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<n,l,s Defined\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.8971456617518735`*^9, 3.8971456654589243`*^9}, {
+   3.897145705696221*^9, 3.8971457558225746`*^9}, {3.8971459307698584`*^9, 
+   3.89714597990267*^9}, {3.897164997471594*^9, 3.897165025611677*^9}, 
+   3.897400917225808*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"aff00840-72ac-425a-beec-4d6ed613ea9d"],
+
+Cell[BoxData["\<\"n,l,s Defined\"\>"], "Print",
+ CellChangeTimes->{
+  3.8971457077044263`*^9, {3.8971457541033325`*^9, 3.8971457564301405`*^9}, 
+   3.897145980958334*^9, 3.8971471152393026`*^9, 3.8971650262852716`*^9, 
+   3.8973937977639446`*^9, 3.897395566542907*^9, 3.897396262947216*^9, 
+   3.8973964079820423`*^9, 3.897396658196057*^9, 3.8974009214422216`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"52edfd1d-e8a9-440a-8685-984ab42b8c20"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Left", " ", "vLog", " ", "Definition"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"qlNum", "=", "20"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dv", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["vLogn", 
+      RowBox[{"qlNum", ",", "0"}]], "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Log", "[", "z", "]"}], ",", 
+       RowBox[{"Log", "[", 
+        RowBox[{"1", "-", "z"}], "]"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["vLogn", 
+      RowBox[{"qlNum", ",", "1"}]], "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"j", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "2", ",", 
+         RowBox[{
+          FractionBox["qlNum", "2"], "-", "dv"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["wLogn", 
+      RowBox[{"qlNum", ",", "1"}]], "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{"j", ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "2", ",", 
+         RowBox[{
+          FractionBox["qlNum", "2"], "-", "dv"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"n2", "=", "2"}], ",", 
+      RowBox[{"n2", "<=", 
+       RowBox[{
+        FractionBox["qlNum", "2"], "-", "dv", "-", "1"}]}], ",", 
+      RowBox[{"n2", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"sn2", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          SubscriptBox["s", "j"], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "n2"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"sT2", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             SubscriptBox["s", "1"], ",", "2", ",", 
+             RowBox[{
+              FractionBox["qlNum", "2"], "-", "dv", "-", "n2", "+", "1"}]}], 
+            "}"}], "}"}], ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              SubscriptBox["s", "j"], ",", "1", ",", 
+              RowBox[{
+               FractionBox["qlNum", "2"], "-", "n2", "-", "dv"}]}], "}"}], 
+            ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "2", ",", 
+              RowBox[{"n2", "-", "1"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             SubscriptBox["s", "n2"], ",", "1", ",", 
+             RowBox[{
+              FractionBox["qlNum", "2"], "-", "dv", "-", 
+              RowBox[{"Sum", "[", 
+               RowBox[{
+                SubscriptBox["s", "j"], ",", 
+                RowBox[{"{", 
+                 RowBox[{"j", ",", "1", ",", 
+                  RowBox[{"n2", "-", "1"}]}], "}"}]}], "]"}]}]}], "}"}], 
+           "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        SubscriptBox["vLogn", 
+         RowBox[{"qlNum", ",", "n2"}]], "=", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Li", "[", 
+            RowBox[{"sn2", ",", 
+             RowBox[{"1", "-", "z"}]}], "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"Sequence", "@@", "sT2"}], "]"}]}], "]"}], "//", 
+         "Flatten"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        SubscriptBox["wLogn", 
+         RowBox[{"qlNum", ",", "n2"}]], "=", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             SubscriptBox["s", "j"], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", "n2"}], "}"}]}], "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"Sequence", "@@", "sT2"}], "]"}]}], "]"}], "//", 
+         "Flatten"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vLog", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        SubscriptBox["vLogn", 
+         RowBox[{"qlNum", ",", "j"}]], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "0", ",", 
+          RowBox[{"Max", "[", 
+           RowBox[{"0", ",", 
+            RowBox[{
+             FractionBox["qlNum", "2"], "-", "dv", "-", "1"}]}], "]"}]}], 
+         "}"}]}], "]"}], "//", "Flatten"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vLog2", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        SubscriptBox["vLogn", 
+         RowBox[{"qlNum", ",", "j"}]], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{
+           FractionBox["qlNum", "2"], "-", "dv", "-", "1"}]}], "}"}]}], "]"}],
+       "//", "Flatten"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"wLog2", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        SubscriptBox["wLogn", 
+         RowBox[{"qlNum", ",", "j"}]], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{
+           FractionBox["qlNum", "2"], "-", "dv", "-", "1"}]}], "}"}]}], "]"}],
+       "//", "Flatten"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Log Functions: \>\"", ",", 
+      RowBox[{"Length", "[", "vLog", "]"}]}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8971466044434433`*^9, 3.8971466713348475`*^9}, {
+  3.8973943957489023`*^9, 3.8973943958748703`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"aecff550-10f4-4b6c-bc98-40f984888c4c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Log Functions: \"\>", "\[InvisibleSpace]", "129"}],
+  SequenceForm["Log Functions: ", 129],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.8971466386806755`*^9, 3.897146672299286*^9}, 
+   3.897146704253542*^9, 3.89716503920337*^9, 3.8973938027859783`*^9, 
+   3.8973943964633255`*^9, {3.8973955491635027`*^9, 3.8973955713381743`*^9}, 
+   3.897396266956894*^9, 3.897396412060688*^9, 3.8973966622483974`*^9, 
+   3.897400925362033*^9},
+ CellLabel->
+  "During evaluation of \
+In[12]:=",ExpressionUUID->"3647fa29-a85f-472b-b9b9-f4de261703d5"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{"\[Psi]l", ",", "\[Psi]lCR", ",", "\[Psi]lRS"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"qNj", "=", "0"}], ",", 
+      RowBox[{"qNj", "<=", 
+       FractionBox["qlNum", "2"]}], ",", 
+      RowBox[{"qNj", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Psi]l", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["z", 
+              RowBox[{"s", "-", 
+               FractionBox["1", "2"]}]], 
+             RowBox[{
+              RowBox[{"ToExpression", "[", 
+               RowBox[{"StringJoin", "[", 
+                RowBox[{"\"\<\[Psi]l\>\"", ",", 
+                 RowBox[{"ToString", "[", 
+                  RowBox[{"2", "qNj"}], "]"}]}], "]"}], "]"}], "[", "z", 
+              "]"}]}], "/.", "nlSub"}], "/.", "cSol"}], "/.", "\[Mu]aSol"}], "/.", 
+         RowBox[{"{", 
+          RowBox[{"q", "->", 
+           SuperscriptBox["t", 
+            RowBox[{"1", "/", "2"}]]}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"\[Psi]lCR", "=", 
+        RowBox[{"CoefficientRules", "[", 
+         RowBox[{"\[Psi]l", ",", "vLog"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<CoeffRules for \[Psi]l: \>\"", ",", 
+         RowBox[{"Length", "[", "\[Psi]lCR", "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"\[Psi]lRS", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", 
+            RowBox[{"Length", "[", "\[Psi]lCR", "]"}]}], "}"}]}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Monitor", "[", 
+        RowBox[{
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"j", "=", "1"}], ",", 
+           RowBox[{"j", "<=", 
+            RowBox[{"Length", "[", "\[Psi]lCR", "]"}]}], ",", 
+           RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"\[Psi]lRS", "[", 
+             RowBox[{"[", "j", "]"}], "]"}], "=", 
+            RowBox[{"Simplify", "[", 
+             RowBox[{"\[Psi]lCR", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "]"}]}]}], "]"}], ",", "j"}], 
+        "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        SubscriptBox["\[Psi]lHS", "qNj"], "=", 
+        RowBox[{"FromCoefficientRules", "[", 
+         RowBox[{"\[Psi]lRS", ",", "vLog"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<\[Psi]lH\>\"", ",", 
+           RowBox[{"ToString", "[", "qNj", "]"}], ",", "\"\<[z] = \>\""}], 
+          "]"}], ",", 
+         RowBox[{"Short", "[", 
+          RowBox[{
+           SubscriptBox["\[Psi]lHS", "qNj"], ",", "2"}], "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ToExpression", "[", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<\[Psi]lH\>\"", ",", 
+            RowBox[{"ToString", "[", "qNj", "]"}]}], "]"}], "]"}], "[", "z_", 
+         "]"}], ":=", 
+        RowBox[{"Evaluate", "[", 
+         SubscriptBox["\[Psi]lHS", "qNj"], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Save", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"SPack", ",", "HWFL"}], "]"}], ",", 
+         RowBox[{"Evaluate", "[", 
+          RowBox[{"ToExpression", "[", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<\[Psi]lH\>\"", ",", 
+             RowBox[{"ToString", "[", "qNj", "]"}]}], "]"}], "]"}], "]"}]}], 
+        "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.8971457578330045`*^9, 3.8971458172762804`*^9}, {
+   3.8971460115466175`*^9, 3.897146036168068*^9}, {3.897146194274885*^9, 
+   3.897146220266532*^9}, {3.8971462698396482`*^9, 3.897146302749878*^9}, {
+   3.8971463417967205`*^9, 3.8971464389443293`*^9}, {3.897146596583658*^9, 
+   3.8971466286726804`*^9}, {3.897146660634418*^9, 3.897146660893256*^9}, {
+   3.8971467313332424`*^9, 3.8971468216460457`*^9}, {3.897146852255221*^9, 
+   3.89714695965165*^9}, {3.897146996281218*^9, 3.897146996602358*^9}, {
+   3.897147043552247*^9, 3.897147063655673*^9}, {3.897165142271095*^9, 
+   3.897165143888732*^9}, {3.8973952950276194`*^9, 3.897395295468446*^9}, {
+   3.8973954056227765`*^9, 3.8973954081643314`*^9}, {3.8973954615802603`*^9, 
+   3.8973954666437006`*^9}, {3.89739551869051*^9, 3.8973955305371647`*^9}, 
+   3.897395802533084*^9, {3.8973961292986*^9, 3.8973961385000286`*^9}, {
+   3.8973961812280474`*^9, 3.8973961837483215`*^9}, {3.897396353640361*^9, 
+   3.8973963538810463`*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"a0e8ee46-8379-4168-bf65-6610512efc88"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Right", " ", "vLog", " ", "Definition"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"qrNum", "=", "14"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["vLogn", 
+      RowBox[{"qrNum", ",", "0"}]], "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Log", "[", "z", "]"}], ",", 
+       RowBox[{"Log", "[", 
+        RowBox[{"1", "-", "z"}], "]"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["vLogn", 
+      RowBox[{"qrNum", ",", "1"}]], "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"j", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "2", ",", 
+         FractionBox["qrNum", "2"]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     SubscriptBox["wLogn", 
+      RowBox[{"qrNum", ",", "1"}]], "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{"j", ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "2", ",", 
+         FractionBox["qrNum", "2"]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"n2", "=", "2"}], ",", 
+      RowBox[{"n2", "<=", 
+       RowBox[{
+        FractionBox["qrNum", "2"], "-", "1"}]}], ",", 
+      RowBox[{"n2", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"sn2", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          SubscriptBox["s", "j"], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "n2"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"sT2", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             SubscriptBox["s", "1"], ",", "2", ",", 
+             RowBox[{
+              FractionBox["qrNum", "2"], "-", "n2", "+", "1"}]}], "}"}], 
+           "}"}], ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              SubscriptBox["s", "j"], ",", "1", ",", 
+              RowBox[{
+               FractionBox["qrNum", "2"], "-", "n2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "2", ",", 
+              RowBox[{"n2", "-", "1"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             SubscriptBox["s", "n2"], ",", "1", ",", 
+             RowBox[{
+              FractionBox["qrNum", "2"], "-", 
+              RowBox[{"Sum", "[", 
+               RowBox[{
+                SubscriptBox["s", "j"], ",", 
+                RowBox[{"{", 
+                 RowBox[{"j", ",", "1", ",", 
+                  RowBox[{"n2", "-", "1"}]}], "}"}]}], "]"}]}]}], "}"}], 
+           "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        SubscriptBox["vLogn", 
+         RowBox[{"qrNum", ",", "n2"}]], "=", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Li", "[", 
+            RowBox[{"sn2", ",", 
+             RowBox[{"1", "-", "z"}]}], "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"Sequence", "@@", "sT2"}], "]"}]}], "]"}], "//", 
+         "Flatten"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        SubscriptBox["wLogn", 
+         RowBox[{"qrNum", ",", "n2"}]], "=", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             SubscriptBox["s", "j"], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", "n2"}], "}"}]}], "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"Sequence", "@@", "sT2"}], "]"}]}], "]"}], "//", 
+         "Flatten"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"vLog", "=", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        SubscriptBox["vLogn", 
+         RowBox[{"qrNum", ",", "j"}]], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "0", ",", 
+          RowBox[{
+           FractionBox["qrNum", "2"], "-", "1"}]}], "}"}]}], "]"}], "//", 
+      "Flatten"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Log Functions: \>\"", ",", 
+      RowBox[{"Length", "[", "vLog", "]"}]}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.897395789090098*^9, 3.897395800409151*^9}, {
+  3.897395831600272*^9, 3.897395868779346*^9}, {3.8973964396532993`*^9, 
+  3.8973964436176343`*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"6598a163-2104-4f82-9953-9f18dd7aec99"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Log Functions: \"\>", "\[InvisibleSpace]", "65"}],
+  SequenceForm["Log Functions: ", 65],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.897395881459367*^9, {3.8973964284220805`*^9, 3.8973964443185453`*^9}, 
+   3.897396667340166*^9, 3.8974009378033385`*^9},
+ CellLabel->
+  "During evaluation of \
+In[24]:=",ExpressionUUID->"21e8a5e1-1fd5-46c1-b969-f9e3098590a3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", 
+     RowBox[{"\[Psi]r", ",", "\[Psi]rCR", ",", "\[Psi]rRS"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"qNj", "=", "0"}], ",", 
+      RowBox[{"qNj", "<=", 
+       FractionBox["qrNum", "2"]}], ",", 
+      RowBox[{"qNj", "++"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Psi]r", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["z", 
+              RowBox[{
+               FractionBox["1", "2"], "-", "s"}]], 
+             RowBox[{
+              RowBox[{"ToExpression", "[", 
+               RowBox[{"StringJoin", "[", 
+                RowBox[{"\"\<\[Psi]r\>\"", ",", 
+                 RowBox[{"ToString", "[", 
+                  RowBox[{"2", "qNj"}], "]"}]}], "]"}], "]"}], "[", "z", 
+              "]"}]}], "/.", "nlSub"}], "/.", "cSol"}], "/.", "\[Mu]aSol"}], "/.", 
+         RowBox[{"{", 
+          RowBox[{"q", "->", 
+           SuperscriptBox["t", 
+            RowBox[{"1", "/", "2"}]]}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"\[Psi]rCR", "=", 
+        RowBox[{"CoefficientRules", "[", 
+         RowBox[{"\[Psi]r", ",", "vLog"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<CoeffRules for \[Psi]r: \>\"", ",", 
+         RowBox[{"Length", "[", "\[Psi]rCR", "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"\[Psi]rRS", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", 
+            RowBox[{"Length", "[", "\[Psi]rCR", "]"}]}], "}"}]}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Monitor", "[", 
+        RowBox[{
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"j", "=", "1"}], ",", 
+           RowBox[{"j", "<=", 
+            RowBox[{"Length", "[", "\[Psi]rCR", "]"}]}], ",", 
+           RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"\[Psi]rRS", "[", 
+             RowBox[{"[", "j", "]"}], "]"}], "=", 
+            RowBox[{"Simplify", "[", 
+             RowBox[{"\[Psi]rCR", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "]"}]}]}], "]"}], ",", "j"}], 
+        "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        SubscriptBox["\[Psi]rHS", "qNj"], "=", 
+        RowBox[{"FromCoefficientRules", "[", 
+         RowBox[{"\[Psi]rRS", ",", "vLog"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<\[Psi]rH\>\"", ",", 
+           RowBox[{"ToString", "[", "qNj", "]"}], ",", "\"\<[z] = \>\""}], 
+          "]"}], ",", 
+         RowBox[{"Short", "[", 
+          RowBox[{
+           SubscriptBox["\[Psi]rHS", "qNj"], ",", "2"}], "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ToExpression", "[", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<\[Psi]rH\>\"", ",", 
+            RowBox[{"ToString", "[", "qNj", "]"}]}], "]"}], "]"}], "[", "z_", 
+         "]"}], ":=", 
+        RowBox[{"Evaluate", "[", 
+         SubscriptBox["\[Psi]rHS", "qNj"], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Save", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"SPack", ",", "HWFR"}], "]"}], ",", 
+         RowBox[{"Evaluate", "[", 
+          RowBox[{"ToExpression", "[", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<\[Psi]rH\>\"", ",", 
+             RowBox[{"ToString", "[", " ", "qNj", "]"}]}], "]"}], "]"}], 
+          "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.897395805083704*^9, 3.897395825866805*^9}, {
+   3.8973959006627865`*^9, 3.897395960136978*^9}, {3.8973961010723057`*^9, 
+   3.897396124332137*^9}, {3.897396169326044*^9, 3.8973961738988185`*^9}, 
+   3.897396209082589*^9, {3.897396505124398*^9, 3.8973965055392523`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"bab34af3-a0f9-48be-9886-a4e571085717"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950528183*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"32dfa077-9d98-4ad4-a56b-df89805c0626"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH0[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox["1", "6"], "+", 
+     FractionBox["1", 
+      SuperscriptBox["z", "2"]], "-", 
+     FractionBox["1", "z"]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH0[z] = ", 
+   Short[Rational[1, 6] + $CellContext`z^(-2) - $CellContext`z^(-1), 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950612853*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"0e993550-47df-4f11-84d1-0bcc40ccdc0b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "3"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 3],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950616844*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"dfa249ba-b8c5-4a8f-abf5-40f01bf622a8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH1[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"6", "+", 
+        RowBox[{"194", " ", "z"}], "-", 
+        RowBox[{"99", " ", 
+         SuperscriptBox["z", "2"]}]}], 
+       RowBox[{"12", " ", 
+        SuperscriptBox["z", "2"]}]]}], "-", 
+     FractionBox[
+      RowBox[{"3", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"Log", "[", 
+        RowBox[{"1", "-", "z"}], "]"}]}], 
+      SuperscriptBox["z", "2"]], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"Log", "[", "z", "]"}]}], 
+      RowBox[{"4", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH1[z] = ", 
+   Short[Rational[-1, 12] $CellContext`z^(-2) (6 + 194 $CellContext`z - 
+      99 $CellContext`z^2) - 
+    3 $CellContext`z^(-2) (6 - 6 $CellContext`z + $CellContext`z^2) 
+    Log[1 - $CellContext`z] + 
+    Rational[1, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950717843*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"d5500250-8d3b-4654-8cbe-7f613042b5fd"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "7"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 7],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8974009507208023`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"a3288684-aeab-4b7a-988d-8146ddcf5d3a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH2[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{"8866", "-", 
+       RowBox[{"79540", " ", "z"}], "+", 
+       RowBox[{"39129", " ", 
+        SuperscriptBox["z", "2"]}]}], 
+      RowBox[{"720", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["63", "2"]}], "-", 
+        FractionBox["99", 
+         SuperscriptBox["z", "2"]], "+", 
+        FractionBox["129", "z"]}], ")"}], " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "-", "z"}], "]"}]}], "+", 
+     FractionBox[
+      RowBox[{"9", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"Log", "[", 
+         RowBox[{"1", "-", "z"}], "]"}], "2"]}], 
+      RowBox[{"2", " ", 
+       SuperscriptBox["z", "2"]}]], "-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ")"}], " ", 
+       RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+      RowBox[{"720", " ", 
+       RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}]], "-", 
+     FractionBox[
+      RowBox[{"9", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "+", 
+         RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], ")"}], 
+       RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+       RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], " ", 
+       RowBox[{"Log", "[", "z", "]"}]}], 
+      RowBox[{"2", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     FractionBox[
+      RowBox[{"3", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"Log", "[", "z", "]"}], "2"]}], 
+      RowBox[{"16", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     FractionBox[
+      RowBox[{"3", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"2", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH2[z] = ", 
+   Short[Rational[1, 720] $CellContext`z^(-2) (8866 - 79540 $CellContext`z + 
+      39129 $CellContext`z^2) + (Rational[-63, 2] - 99 $CellContext`z^(-2) + 
+      129/$CellContext`z) Log[1 - $CellContext`z] + 
+    Rational[9, 2] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 + 
+    Rational[-1, 720] $CellContext`z^(-2) (1038 + 18582 $CellContext`z - 
+      9637 $CellContext`z^2) Log[$CellContext`z] + 
+    Rational[-9, 2] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[3, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^2 + 
+    Rational[3, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) PolyLog[2, 1 - $CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950810486*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"e4ebed24-631a-442d-95b5-330075ef2e50"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "14"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 14],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8974009508134794`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"973fd9e9-9e9d-419b-8e09-31b7037cb87d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH3[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox["95849", "480"], "+", 
+     FractionBox["334", 
+      RowBox[{"9", " ", 
+       SuperscriptBox["z", "2"]}]], "-", 
+     FractionBox["72437", 
+      RowBox[{"180", " ", "z"}]], "+", 
+     RowBox[{"\[LeftSkeleton]", "16", "\[RightSkeleton]"}], "+", 
+     FractionBox[
+      RowBox[{"9", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"Log", "[", "z", "]"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"2", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"16", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     FractionBox[
+      RowBox[{"99", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"3", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH3[z] = ", 
+   Short[Rational[95849, 480] + Rational[334, 9] $CellContext`z^(-2) + 
+    Rational[-72437, 180]/$CellContext`z + (Rational[-4009, 24] + 
+      Rational[-8611, 20] $CellContext`z^(-2) + 
+      Rational[2977, 5]/$CellContext`z) Log[1 - $CellContext`z] + 
+    Rational[9, 2] $CellContext`z^(-2) (36 - 46 $CellContext`z + 
+      11 $CellContext`z^2) Log[1 - $CellContext`z]^2 + 
+    Rational[-9, 2] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 + 
+    Rational[1, 1440] $CellContext`z^(-2) (26598 - 292148 $CellContext`z + 
+      144691 $CellContext`z^2) Log[$CellContext`z] + 
+    Rational[-1, 40] $CellContext`z^(-2) (5442 - 8862 $CellContext`z + 
+      2617 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[27, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z] + 
+    Rational[-1, 240] $CellContext`z^(-2) (384 + 4926 $CellContext`z - 
+      2591 $CellContext`z^2) Log[$CellContext`z]^2 + 
+    Rational[-27, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^2 + 
+    Rational[3, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^3 + 
+    Rational[1, 120] $CellContext`z^(-2) (5844 - 1434 $CellContext`z - 
+      1231 $CellContext`z^2) PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-27, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[9, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[99, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) PolyLog[3, 1 - $CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950928924*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"37ebc9c9-e505-425c-a223-916a00f61192"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "27"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 27],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400950931919*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"9143eb9e-ae3f-4c4a-8365-e880242ed5b0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH4[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{"263747332", "-", 
+       RowBox[{"3159789400", " ", "z"}], "+", 
+       RowBox[{"1547975193", " ", 
+        SuperscriptBox["z", "2"]}]}], 
+      RowBox[{"2592000", " ", 
+       SuperscriptBox["z", "2"]}]], "-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1038", "+", 
+         RowBox[{"582", " ", "z"}], "-", 
+         RowBox[{"637", " ", 
+          SuperscriptBox["z", "2"]}]}], ")"}], " ", 
+       RowBox[{"Li", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"2", ",", "1"}], "}"}], ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"160", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     RowBox[{"\[LeftSkeleton]", "35", "\[RightSkeleton]"}], "+", 
+     FractionBox[
+      RowBox[{"27", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"4", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH4[z] = ", 
+   Short[Rational[1, 2592000] $CellContext`z^(-2) (263747332 - 
+      3159789400 $CellContext`z + 1547975193 $CellContext`z^2) + 
+    Rational[-1, 160] $CellContext`z^(-2) (1038 + 582 $CellContext`z - 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] + 
+    Rational[27, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] + 
+    Rational[-1, 240] $CellContext`z^(-2) (364092 - 518284 $CellContext`z + 
+      154801 $CellContext`z^2) Log[1 - $CellContext`z] + 
+    Rational[1, 40] $CellContext`z^(-2) (29592 - 40383 $CellContext`z + 
+      11099 $CellContext`z^2) Log[1 - $CellContext`z]^2 + 
+    Rational[-9, 4] $CellContext`z^(-2) (78 - 98 $CellContext`z + 
+      23 $CellContext`z^2) Log[1 - $CellContext`z]^3 + 
+    Rational[27, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 + 
+    Rational[1, 2592000] $CellContext`z^(-2) (122723874 - 
+      2282807034 $CellContext`z + 1155859069 $CellContext`z^2) 
+     Log[$CellContext`z] + 
+    Rational[-1, 80] $CellContext`z^(-2) (45690 - 91100 $CellContext`z + 
+      32403 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[3, 80] $CellContext`z^(-2) (5982 - 9402 $CellContext`z + 
+      2707 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z] + 
+    Rational[-27, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z] + 
+    Rational[1, 172800] $CellContext`z^(-2) (2435154 - 
+      31443774 $CellContext`z + 15632239 $CellContext`z^2) 
+     Log[$CellContext`z]^2 + 
+    Rational[-3, 10] $CellContext`z^(-2) (309 - 624 $CellContext`z + 
+      209 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[81, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^2 + 
+    Rational[-1, 640] $CellContext`z^(-2) (678 + 6942 $CellContext`z - 
+      3697 $CellContext`z^2) Log[$CellContext`z]^3 + 
+    Rational[-27, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^3 + 
+    Rational[9, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^4 + 
+    Rational[1, 86400] $CellContext`z^(-2) (31582194 - 9122334 $CellContext`z - 
+      6410561 $CellContext`z^2) PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-1, 20] $CellContext`z^(-2) (6822 - 5742 $CellContext`z + 
+      597 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[81, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-3, 320] $CellContext`z^(-2) (-7626 + 2286 $CellContext`z + 
+      1399 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-81, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[27, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 80] $CellContext`z^(-2) (42618 - 42798 $CellContext`z + 
+      7193 $CellContext`z^2) PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-81, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[297, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[27, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) PolyLog[4, 1 - $CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8974009510522556`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"fb24e63b-f3e8-41dc-873f-1647a766205f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "50"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 50],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8974009510552154`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"899d79f8-fa75-4536-99b1-e0726eb8ee81"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH5[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{"460731898", "-", 
+       RowBox[{"5708950084", " ", "z"}], "+", 
+       RowBox[{"2753944935", " ", 
+        SuperscriptBox["z", "2"]}]}], 
+      RowBox[{"1728000", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1057722"}], "+", 
+         RowBox[{"185442", " ", "z"}], "+", 
+         RowBox[{"272003", " ", 
+          SuperscriptBox["z", "2"]}]}], ")"}], " ", 
+       RowBox[{"Li", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"2", ",", "1"}], "}"}], ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"7200", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     RowBox[{"\[LeftSkeleton]", "67", "\[RightSkeleton]"}], "+", 
+     FractionBox[
+      RowBox[{"891", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"5", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH5[z] = ", 
+   Short[Rational[1, 1728000] $CellContext`z^(-2) (460731898 - 
+      5708950084 $CellContext`z + 2753944935 $CellContext`z^2) + 
+    Rational[1, 7200] $CellContext`z^(-2) (-1057722 + 185442 $CellContext`z + 
+      272003 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] + 
+    Rational[27, 64] $CellContext`z^(-2) (18 - 218 $CellContext`z + 
+      103 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] + 
+    Rational[891, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3}, 
+       1 - $CellContext`z] + 
+    Rational[33, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] + 
+    Rational[891, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2}, 
+       1 - $CellContext`z] + 
+    Rational[-1, 432000] $CellContext`z^(-2) (1998385572 - 
+      2884469736 $CellContext`z + 887169695 $CellContext`z^2) 
+     Log[1 - $CellContext`z] + 
+    Rational[1, 80] $CellContext`z^(-2) (9342 + 5238 $CellContext`z - 
+      5733 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-243, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[1, 80] $CellContext`z^(-2) (218385 - 308002 $CellContext`z + 
+      90489 $CellContext`z^2) Log[1 - $CellContext`z]^2 + 
+    Rational[-3, 80] $CellContext`z^(-2) (22414 - 30208 $CellContext`z + 
+      8147 $CellContext`z^2) Log[1 - $CellContext`z]^3 + 
+    Rational[27, 4] $CellContext`z^(-2) (21 - 26 $CellContext`z + 
+      6 $CellContext`z^2) Log[1 - $CellContext`z]^4 + 
+    Rational[-81, 40] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^5 + 
+    Rational[1, 5184000] $CellContext`z^(-2) (637124484 - 
+      15532146164 $CellContext`z + 7892091405 $CellContext`z^2) 
+     Log[$CellContext`z] + 
+    Rational[3, 320] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[81, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-1, 48000] $CellContext`z^(-2) (93311278 - 
+      216463798 $CellContext`z + 83848443 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[3, 160] $CellContext`z^(-2) (52710 - 101540 $CellContext`z + 
+      35283 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z] + 
+    Rational[-3, 80] $CellContext`z^(-2) (6522 - 9942 $CellContext`z + 
+      2797 $CellContext`z^2) Log[1 - $CellContext`z]^3 Log[$CellContext`z] + 
+    Rational[81, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     Log[$CellContext`z] + 
+    Rational[1, 216000] $CellContext`z^(-2) (6348318 - 
+      196869863 $CellContext`z + 100665433 $CellContext`z^2) 
+     Log[$CellContext`z]^2 + 
+    Rational[-1, 9600] $CellContext`z^(-2) (3615594 - 10300614 $CellContext`z + 
+      4181179 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[9, 160] $CellContext`z^(-2) (2742 - 5262 $CellContext`z + 
+      1717 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z]^2 + 
+    Rational[-81, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z]^2 + 
+    Rational[1, 115200] $CellContext`z^(-2) (839274 - 12309054 $CellContext`z + 
+      6131659 $CellContext`z^2) Log[$CellContext`z]^3 + 
+    Rational[-9, 320] $CellContext`z^(-2) (1482 - 3702 $CellContext`z + 
+      1357 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^3 + 
+    Rational[81, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^3 + 
+    Rational[-1, 2560] $CellContext`z^(-2) (1266 + 10974 $CellContext`z - 
+      5909 $CellContext`z^2) Log[$CellContext`z]^4 + 
+    Rational[-81, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^4 + 
+    Rational[27, 2560] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^5 + 
+    Rational[1, 216000] $CellContext`z^(-2) (352174134 - 
+      108776344 $CellContext`z - 64664521 $CellContext`z^2) 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-1, 4800] $CellContext`z^(-2) (8847114 - 6370854 $CellContext`z + 
+      278059 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[9, 80] $CellContext`z^(-2) (4818 - 4098 $CellContext`z + 
+      443 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-81, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 19200] $CellContext`z^(-2) (9865722 - 3012942 $CellContext`z - 
+      1914013 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-9, 160] $CellContext`z^(-2) (8598 - 8778 $CellContext`z + 
+      1523 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[243, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-3, 128] $CellContext`z^(-2) (-2238 + 798 $CellContext`z + 
+      347 $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-243, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^2 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[27, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 28800] $CellContext`z^(-2) (72337314 - 
+      66669654 $CellContext`z + 10166759 $CellContext`z^2) 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-9, 40] $CellContext`z^(-2) (4818 - 4098 $CellContext`z + 
+      443 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[243, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[27, 320] $CellContext`z^(-2) (8862 - 10882 $CellContext`z + 
+      2487 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-243, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z] PolyLog[3, 1 - $CellContext`z] + 
+    Rational[891, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-3, 20] $CellContext`z^(-2) (-3057 + 852 $CellContext`z + 
+      593 $CellContext`z^2) PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-243, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[81, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[891, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) PolyLog[5, 1 - $CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400951185899*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"09205bff-526c-4942-b2c2-73985685169a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "92"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 92],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400951188858*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"bb97d1ad-99a6-4fe3-aa48-cfb6c1eafc57"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH6[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{"2570179747219", "-", 
+       RowBox[{"37641093959950", " ", "z"}], "+", 
+       RowBox[{"18004372144431", " ", 
+        SuperscriptBox["z", "2"]}]}], 
+      RowBox[{"4665600000", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     RowBox[{"\[LeftSkeleton]", "123", "\[RightSkeleton]"}], "+", 
+     FractionBox[
+      RowBox[{"243", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"6", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH6[z] = ", 
+   Short[Rational[1, 4665600000] $CellContext`z^(-2) (2570179747219 - 
+      37641093959950 $CellContext`z + 18004372144431 $CellContext`z^2) + 
+    Rational[1, 2592000] $CellContext`z^(-2) (-3110334738 + 
+      604078728 $CellContext`z + 
+      770439677 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] + 
+    Rational[1, 9600] $CellContext`z^(-2) (674988 - 7065483 $CellContext`z + 
+      3463963 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] + 
+    Rational[81, 16] $CellContext`z^(-2) (264 - 274 $CellContext`z + 
+      49 $CellContext`z^2) $CellContext`Li[{2, 3}, 1 - $CellContext`z] + 
+    Rational[243, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 4}, 
+       1 - $CellContext`z] + 
+    Rational[-1, 4800] $CellContext`z^(-2) (8400534 + 4398726 $CellContext`z - 
+      5266841 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] + 
+    Rational[81, 16] $CellContext`z^(-2) (264 - 274 $CellContext`z + 
+      49 $CellContext`z^2) $CellContext`Li[{3, 2}, 1 - $CellContext`z] + 
+    Rational[243, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 3}, 
+       1 - $CellContext`z] + 
+    Rational[9, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{4, 1}, 1 - $CellContext`z] + 
+    Rational[243, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{4, 2}, 
+       1 - $CellContext`z] + 
+    Rational[29929, 9600] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 1, 1}, 
+       1 - $CellContext`z] + 
+    Rational[9, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1, 2}, 1 - $CellContext`z] + 
+    Rational[9, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 2, 1}, 1 - $CellContext`z] + 
+    Rational[243, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2, 2}, 
+       1 - $CellContext`z] + 
+    Rational[-1, 864000] $CellContext`z^(-2) (10932808518 - 
+      15878124100 $CellContext`z + 4947305237 $CellContext`z^2) 
+     Log[1 - $CellContext`z] + 
+    Rational[1, 400] $CellContext`z^(-2) (440112 + 168918 $CellContext`z - 
+      243313 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-1215, 32] $CellContext`z^(-2) (18 - 22 $CellContext`z + 
+      5 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-729, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[-27, 80] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-729, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[1, 144000] $CellContext`z^(-2) (1252318869 - 
+      1796241681 $CellContext`z + 545902288 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^2 + 
+    Rational[27, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z]^2 + 
+    Rational[729, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z]^2 + 
+    Rational[-3, 160] $CellContext`z^(-2) (172848 - 241540 $CellContext`z + 
+      69857 $CellContext`z^2) Log[1 - $CellContext`z]^3 + 
+    Rational[3, 160] $CellContext`z^(-2) (37920 - 50511 $CellContext`z + 
+      13387 $CellContext`z^2) Log[1 - $CellContext`z]^4 + 
+    Rational[-81, 16] $CellContext`z^(-2) (18 - 22 $CellContext`z + 
+      5 $CellContext`z^2) Log[1 - $CellContext`z]^5 + 
+    Rational[81, 80] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^6 + 
+    Rational[1, 4665600000] $CellContext`z^(-2) (1479215504808 - 
+      41259669670278 $CellContext`z + 20713990898323 $CellContext`z^2) 
+     Log[$CellContext`z] + 
+    Rational[1, 6400] $CellContext`z^(-2) (-1381578 + 169938 $CellContext`z + 
+      391757 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[9, 1280] $CellContext`z^(-2) (1122 - 20742 $CellContext`z + 
+      9997 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[2673, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[99, 320] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[2673, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-1, 288000] $CellContext`z^(-2) (1655099028 - 
+      4329196848 $CellContext`z + 1750864259 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-27, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-729, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[1, 96000] $CellContext`z^(-2) (338655894 - 
+      757977054 $CellContext`z + 288138839 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^2 Log[$CellContext`z] + 
+    Rational[-3, 160] $CellContext`z^(-2) (60270 - 112520 $CellContext`z + 
+      38253 $CellContext`z^2) Log[1 - $CellContext`z]^3 Log[$CellContext`z] + 
+    Rational[9, 320] $CellContext`z^(-2) (7062 - 10482 $CellContext`z + 
+      2887 $CellContext`z^2) Log[1 - $CellContext`z]^4 Log[$CellContext`z] + 
+    Rational[-243, 80] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^5 
+     Log[$CellContext`z] + 
+    Rational[1, 311040000] $CellContext`z^(-2) (22627568388 - 
+      1082002697598 $CellContext`z + 558429243733 $CellContext`z^2) 
+     Log[$CellContext`z]^2 + 
+    Rational[9, 1280] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z]^2 + 
+    Rational[243, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[-1, 48000] $CellContext`z^(-2) (59389572 - 
+      224179502 $CellContext`z + 98786507 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[1, 6400] $CellContext`z^(-2) (4202574 - 11341194 $CellContext`z + 
+      4505809 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^2 + 
+    Rational[-9, 80] $CellContext`z^(-2) (1506 - 2766 $CellContext`z + 
+      881 $CellContext`z^2) Log[1 - $CellContext`z]^3 Log[$CellContext`z]^2 + 
+    Rational[243, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     Log[$CellContext`z]^2 + 
+    Rational[1, 15552000] $CellContext`z^(-2) (181022514 - 
+      9394540989 $CellContext`z + 4827504499 $CellContext`z^2) 
+     Log[$CellContext`z]^3 + 
+    Rational[-1, 6400] $CellContext`z^(-2) (1053474 - 4245054 $CellContext`z + 
+      1866259 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^3 + 
+    Rational[27, 640] $CellContext`z^(-2) (1662 - 3882 $CellContext`z + 
+      1387 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z]^3 + 
+    Rational[-81, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z]^3 + 
+    Rational[1, 76800] $CellContext`z^(-2) (220152 - 3561957 $CellContext`z + 
+      1775867 $CellContext`z^2) Log[$CellContext`z]^4 + 
+    Rational[-9, 1280] $CellContext`z^(-2) (1974 - 6114 $CellContext`z + 
+      2399 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^4 + 
+    Rational[243, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^4 + 
+    Rational[3, 10240] $CellContext`z^(-2) (-606 - 4614 $CellContext`z + 
+      2509 $CellContext`z^2) Log[$CellContext`z]^5 + 
+    Rational[-243, 1280] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^5 + 
+    Rational[27, 10240] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^6 + 
+    Rational[1, 155520000] $CellContext`z^(-2) (940129375188 - 
+      286352132718 $CellContext`z - 153355213907 $CellContext`z^2) 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 12000] $CellContext`z^(-2) (-93711639 + 
+      59180224 $CellContext`z + 369216 $CellContext`z^2) 
+     Log[1 - $CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 3200] $CellContext`z^(-2) (9807774 - 7201914 $CellContext`z + 
+      373369 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-9, 10] $CellContext`z^(-2) (636 - 546 $CellContext`z + 
+      61 $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[243, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 2592000] $CellContext`z^(-2) (5640293238 - 
+      1902529473 $CellContext`z - 950883707 $CellContext`z^2) 
+     Log[$CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-1, 3200] $CellContext`z^(-2) (8047326 - 7877586 $CellContext`z + 
+      1346621 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[27, 320] $CellContext`z^(-2) (9138 - 9318 $CellContext`z + 
+      1613 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-243, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 6400] $CellContext`z^(-2) (2304456 - 774021 $CellContext`z - 
+      410069 $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-1215, 64] $CellContext`z^(-2) (18 - 22 $CellContext`z + 
+      5 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^2 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-3, 2560] $CellContext`z^(-2) (-21882 + 9102 $CellContext`z + 
+      2743 $CellContext`z^2) Log[$CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-243, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^3 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[81, 1024] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^4 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 288000] $CellContext`z^(-2) (2899167426 - 
+      2350746566 $CellContext`z + 279189531 $CellContext`z^2) 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-1, 1600] $CellContext`z^(-2) (9807774 - 7201914 $CellContext`z + 
+      373369 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[27, 10] $CellContext`z^(-2) (636 - 546 $CellContext`z + 
+      61 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-243, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[3, 6400] $CellContext`z^(-2) (7196634 - 9414774 $CellContext`z + 
+      2472839 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-27, 160] $CellContext`z^(-2) (9138 - 9318 $CellContext`z + 
+      1613 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[729, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z] PolyLog[3, 1 - $CellContext`z] + 
+    Rational[9, 64] $CellContext`z^(-2) (3714 - 5514 $CellContext`z + 
+      1519 $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-729, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^2 PolyLog[3, 1 - $CellContext`z] + 
+    Rational[891, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^3 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[1, 9600] $CellContext`z^(-2) (36122514 - 10487454 $CellContext`z - 
+      7241441 $CellContext`z^2) PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-27, 5] $CellContext`z^(-2) (636 - 546 $CellContext`z + 
+      61 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[729, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-27, 320] $CellContext`z^(-2) (-7986 + 2646 $CellContext`z + 
+      1339 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-729, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z] PolyLog[4, 1 - $CellContext`z] + 
+    Rational[243, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[9, 80] $CellContext`z^(-2) (48558 - 48738 $CellContext`z + 
+      8183 $CellContext`z^2) PolyLog[5, 1 - $CellContext`z] + 
+    Rational[-729, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[5, 1 - $CellContext`z] + 
+    Rational[2673, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[5, 1 - $CellContext`z] + 
+    Rational[243, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) PolyLog[6, 1 - $CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8974009513546915`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"10390738-f70d-4100-b8b1-f5da6755713a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"CoeffRules for \[Psi]r: \"\>", "\[InvisibleSpace]", "167"}],
+  SequenceForm["CoeffRules for \[Psi]r: ", 167],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.897400951357687*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"20b9e9b8-0434-430b-bc3e-2d512879e865"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Psi]rH7[z] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{"8193933792161", "-", 
+       RowBox[{"169566223016384", " ", "z"}], "+", 
+       RowBox[{"80741278857297", " ", 
+        SuperscriptBox["z", "2"]}]}], 
+      RowBox[{"9331200000", " ", 
+       SuperscriptBox["z", "2"]}]], "+", 
+     RowBox[{"\[LeftSkeleton]", "227", "\[RightSkeleton]"}], "+", 
+     FractionBox[
+      RowBox[{"8019", " ", 
+       RowBox[{"(", 
+        RowBox[{"6", "-", 
+         RowBox[{"6", " ", "z"}], "+", 
+         SuperscriptBox["z", "2"]}], ")"}], " ", 
+       RowBox[{"PolyLog", "[", 
+        RowBox[{"7", ",", 
+         RowBox[{"1", "-", "z"}]}], "]"}]}], 
+      RowBox[{"8", " ", 
+       SuperscriptBox["z", "2"]}]]}],
+    Short[#, 2]& ]}],
+  SequenceForm["\[Psi]rH7[z] = ", 
+   Short[Rational[1, 9331200000] $CellContext`z^(-2) (8193933792161 - 
+      169566223016384 $CellContext`z + 80741278857297 $CellContext`z^2) + 
+    Rational[1, 12960000] $CellContext`z^(-2) (-76216825839 + 
+      15866036114 $CellContext`z + 
+      18058326001 $CellContext`z^2) $CellContext`Li[{2, 1}, 
+       1 - $CellContext`z] + 
+    Rational[1, 3840] $CellContext`z^(-2) (1228137 - 12980509 $CellContext`z + 
+      6416616 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] + 
+    Rational[1, 6400] $CellContext`z^(-2) (42239346 - 43218636 $CellContext`z + 
+      8050321 $CellContext`z^2) $CellContext`Li[{2, 3}, 1 - $CellContext`z] + 
+    Rational[1215, 64] $CellContext`z^(-2) (6 - 46 $CellContext`z + 
+      21 $CellContext`z^2) $CellContext`Li[{2, 4}, 1 - $CellContext`z] + 
+    Rational[8019, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 5}, 
+       1 - $CellContext`z] + 
+    Rational[-1, 432000] $CellContext`z^(-2) (3871959594 + 
+      1656489711 $CellContext`z - 
+      2219388926 $CellContext`z^2) $CellContext`Li[{3, 1}, 
+       1 - $CellContext`z] + 
+    Rational[1, 6400] $CellContext`z^(-2) (42239346 - 43218636 $CellContext`z + 
+      8050321 $CellContext`z^2) $CellContext`Li[{3, 2}, 1 - $CellContext`z] + 
+    Rational[1215, 64] $CellContext`z^(-2) (6 - 46 $CellContext`z + 
+      21 $CellContext`z^2) $CellContext`Li[{3, 3}, 1 - $CellContext`z] + 
+    Rational[8019, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 4}, 
+       1 - $CellContext`z] + 
+    Rational[1, 200] $CellContext`z^(-2) (-276108 + 39813 $CellContext`z + 
+      75167 $CellContext`z^2) $CellContext`Li[{4, 1}, 1 - $CellContext`z] + 
+    Rational[1215, 64] $CellContext`z^(-2) (6 - 46 $CellContext`z + 
+      21 $CellContext`z^2) $CellContext`Li[{4, 2}, 1 - $CellContext`z] + 
+    Rational[8019, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{4, 3}, 
+       1 - $CellContext`z] + 
+    Rational[297, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{5, 1}, 1 - $CellContext`z] + 
+    Rational[8019, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{5, 2}, 
+       1 - $CellContext`z] + 
+    Rational[-209503, 432000] $CellContext`z^(-2) (-912 + 282 $CellContext`z + 
+      163 $CellContext`z^2) $CellContext`Li[{2, 1, 1}, 1 - $CellContext`z] + 
+    Rational[9, 1280] $CellContext`z^(-2) (-5190 - 36818 $CellContext`z + 
+      20679 $CellContext`z^2) $CellContext`Li[{2, 1, 2}, 1 - $CellContext`z] + 
+    Rational[297, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1, 3}, 1 - $CellContext`z] + 
+    Rational[9, 1280] $CellContext`z^(-2) (-5190 - 36818 $CellContext`z + 
+      20679 $CellContext`z^2) $CellContext`Li[{2, 2, 1}, 1 - $CellContext`z] + 
+    Rational[27, 320] $CellContext`z^(-2) (-2517 - 4188 $CellContext`z + 
+      2933 $CellContext`z^2) $CellContext`Li[{2, 2, 2}, 1 - $CellContext`z] + 
+    Rational[8019, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2, 3}, 
+       1 - $CellContext`z] + 
+    Rational[297, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 3, 1}, 1 - $CellContext`z] + 
+    Rational[8019, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3, 2}, 
+       1 - $CellContext`z] + 
+    Rational[329219, 3200] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 1, 1}, 
+       1 - $CellContext`z] + 
+    Rational[297, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1, 2}, 1 - $CellContext`z] + 
+    Rational[297, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 2, 1}, 1 - $CellContext`z] + 
+    Rational[8019, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2, 2}, 
+       1 - $CellContext`z] + 
+    Rational[-1, 777600000] $CellContext`z^(-2) (24711642385599 - 
+      35968221526512 $CellContext`z + 11258275297940 $CellContext`z^2) 
+     Log[1 - $CellContext`z] + 
+    Rational[1, 144000] $CellContext`z^(-2) (921410718 + 
+      223534092 $CellContext`z - 
+      438809747 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-3, 1600] $CellContext`z^(-2) (1822218 - 2429313 $CellContext`z + 
+      641968 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-729, 16] $CellContext`z^(-2) (48 - 58 $CellContext`z + 
+      13 $CellContext`z^2) $CellContext`Li[{2, 3}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-2187, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 4}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[3, 800] $CellContext`z^(-2) (926934 + 364026 $CellContext`z - 
+      515291 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-729, 16] $CellContext`z^(-2) (48 - 58 $CellContext`z + 
+      13 $CellContext`z^2) $CellContext`Li[{3, 2}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-2187, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 3}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[-81, 80] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{4, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-2187, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{4, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[-89787, 1600] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 1, 1}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[-81, 320] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1, 2}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-81, 320] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] + 
+    Rational[-2187, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] + 
+    Rational[1, 288000] $CellContext`z^(-2) (7143492483 - 
+      10333046336 $CellContext`z + 3194230709 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^2 + 
+    Rational[3, 1600] $CellContext`z^(-2) (-926934 - 364026 $CellContext`z + 
+      515291 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z]^2 + 
+    Rational[729, 32] $CellContext`z^(-2) (48 - 58 $CellContext`z + 
+      13 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z]^2 + 
+    Rational[2187, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z]^2 + 
+    Rational[81, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z]^2 + 
+    Rational[2187, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z]^2 + 
+    Rational[-1, 96000] $CellContext`z^(-2) (1033120348 - 
+      1472079976 $CellContext`z + 442069749 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^3 + 
+    Rational[-27, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z]^3 + 
+    Rational[-729, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z]^3 + 
+    Rational[3, 320] $CellContext`z^(-2) (304977 - 422336 $CellContext`z + 
+      120335 $CellContext`z^2) Log[1 - $CellContext`z]^4 + 
+    Rational[-9, 1600] $CellContext`z^(-2) (84978 - 111960 $CellContext`z + 
+      29197 $CellContext`z^2) Log[1 - $CellContext`z]^5 + 
+    Rational[81, 80] $CellContext`z^(-2) (48 - 58 $CellContext`z + 
+      13 $CellContext`z^2) Log[1 - $CellContext`z]^6 + 
+    Rational[-243, 560] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^7 + 
+    Rational[1, 9331200000] $CellContext`z^(-2) (5692259814969 - 
+      218289549459794 $CellContext`z + 108185543956181 $CellContext`z^2) 
+     Log[$CellContext`z] + 
+    Rational[1, 288000] $CellContext`z^(-2) (-488479326 + 
+      85401771 $CellContext`z + 
+      126440189 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[1, 6400] $CellContext`z^(-2) (630168 - 8370843 $CellContext`z + 
+      4143733 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[27, 1280] $CellContext`z^(-2) (89562 - 110982 $CellContext`z + 
+      25637 $CellContext`z^2) $CellContext`Li[{2, 3}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 4}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[9, 6400] $CellContext`z^(-2) (-1761486 - 1260994 $CellContext`z + 
+      1277059 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[27, 1280] $CellContext`z^(-2) (89562 - 110982 $CellContext`z + 
+      25637 $CellContext`z^2) $CellContext`Li[{3, 2}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 3}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[27, 320] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{4, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{4, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[29929, 6400] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 1, 1}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[27, 1280] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1, 2}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[27, 1280] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z] + 
+    Rational[729, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-1, 86400000] $CellContext`z^(-2) (1321052188076 - 
+      3818670418166 $CellContext`z + 1579017725031 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[1, 3200] $CellContext`z^(-2) (5022882 + 2722878 $CellContext`z - 
+      3181533 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-81, 640] $CellContext`z^(-2) (7602 - 11022 $CellContext`z + 
+      2977 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-2187, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-81, 160] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[-2187, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] Log[$CellContext`z] + 
+    Rational[1, 192000] $CellContext`z^(-2) (2094852528 - 
+      5278664008 $CellContext`z + 2104652539 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^2 Log[$CellContext`z] + 
+    Rational[81, 320] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z]^2 Log[$CellContext`z] + 
+    Rational[2187, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z]^2 Log[$CellContext`z] + 
+    Rational[-1, 96000] $CellContext`z^(-2) (405116154 - 
+      877378914 $CellContext`z + 327561049 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^3 Log[$CellContext`z] + 
+    Rational[9, 640] $CellContext`z^(-2) (68370 - 124040 $CellContext`z + 
+      41313 $CellContext`z^2) Log[1 - $CellContext`z]^4 Log[$CellContext`z] + 
+    Rational[-27, 1600] $CellContext`z^(-2) (7602 - 11022 $CellContext`z + 
+      2977 $CellContext`z^2) Log[1 - $CellContext`z]^5 Log[$CellContext`z] + 
+    Rational[243, 160] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^6 
+     Log[$CellContext`z] + 
+    Rational[1, 388800000] $CellContext`z^(-2) (72807687441 - 
+      4370985208331 $CellContext`z + 2236656296121 $CellContext`z^2) 
+     Log[$CellContext`z]^2 + 
+    Rational[1, 2560] $CellContext`z^(-2) (-405858 + 27786 $CellContext`z + 
+      126253 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z]^2 + 
+    Rational[27, 1280] $CellContext`z^(-2) (156 - 5466 $CellContext`z + 
+      2681 $CellContext`z^2) $CellContext`Li[{2, 2}, 1 - $CellContext`z] 
+     Log[$CellContext`z]^2 + 
+    Rational[8019, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 3}, 
+       1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[297, 1280] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{3, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z]^2 + 
+    Rational[8019, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{3, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[-1, 17280000] $CellContext`z^(-2) (61233690888 - 
+      292554895698 $CellContext`z + 134017110383 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[-81, 640] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[-2187, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[1 - $CellContext`z] Log[$CellContext`z]^2 + 
+    Rational[1, 64000] $CellContext`z^(-2) (145002774 - 
+      514635334 $CellContext`z + 223150319 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^2 Log[$CellContext`z]^2 + 
+    Rational[-1, 6400] $CellContext`z^(-2) (4838154 - 12430374 $CellContext`z + 
+      4838539 $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z]^2 + 
+    Rational[27, 640] $CellContext`z^(-2) (3282 - 5802 $CellContext`z + 
+      1807 $CellContext`z^2) Log[1 - $CellContext`z]^4 Log[$CellContext`z]^2 + 
+    Rational[-729, 320] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^5 
+     Log[$CellContext`z]^2 + 
+    Rational[1, 622080000] $CellContext`z^(-2) (17442482424 - 
+      1596268753594 $CellContext`z + 829254308589 $CellContext`z^2) 
+     Log[$CellContext`z]^3 + 
+    Rational[9, 2560] $CellContext`z^(-2) (-1038 - 582 $CellContext`z + 
+      637 $CellContext`z^2) $CellContext`Li[{2, 1}, 1 - $CellContext`z] 
+     Log[$CellContext`z]^3 + 
+    Rational[243, 512] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) $CellContext`Li[{2, 2}, 
+       1 - $CellContext`z] Log[$CellContext`z]^3 + 
+    Rational[-1, 864000] $CellContext`z^(-2) (450393684 - 
+      2740084809 $CellContext`z + 1293615169 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z]^3 + 
+    Rational[3, 12800] $CellContext`z^(-2) (1234194 - 4625574 $CellContext`z + 
+      1996279 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^3 + 
+    Rational[-27, 640] $CellContext`z^(-2) (1842 - 4062 $CellContext`z + 
+      1417 $CellContext`z^2) Log[1 - $CellContext`z]^3 Log[$CellContext`z]^3 + 
+    Rational[243, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     Log[$CellContext`z]^3 + 
+    Rational[1, 20736000] $CellContext`z^(-2) (66360117 - 
+      6039549327 $CellContext`z + 3111084032 $CellContext`z^2) 
+     Log[$CellContext`z]^4 + 
+    Rational[-3, 12800] $CellContext`z^(-2) (228882 - 1291887 $CellContext`z + 
+      597422 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^4 + 
+    Rational[27, 640] $CellContext`z^(-2) (561 - 1596 $CellContext`z + 
+      611 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z]^4 + 
+    Rational[-243, 256] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z]^4 + 
+    Rational[1, 153600] $CellContext`z^(-2) (140358 - 2444637 $CellContext`z + 
+      1218926 $CellContext`z^2) Log[$CellContext`z]^5 + 
+    Rational[-27, 1024] $CellContext`z^(-2) (138 - 534 $CellContext`z + 
+      221 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^5 + 
+    Rational[729, 2560] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^5 + 
+    Rational[63, 25600] $CellContext`z^(-2) (-21 - 144 $CellContext`z + 
+      79 $CellContext`z^2) Log[$CellContext`z]^6 + 
+    Rational[-243, 5120] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^6 + 
+    Rational[81, 143360] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^7 + 
+    Rational[1, 388800000] $CellContext`z^(-2) (7543575386298 - 
+      2273161760368 $CellContext`z - 1113424018737 $CellContext`z^2) 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 8640000] $CellContext`z^(-2) (-242045223768 + 
+      137318561298 $CellContext`z + 6102682177 $CellContext`z^2) 
+     Log[1 - $CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 32000] $CellContext`z^(-2) (432687666 - 
+      280287106 $CellContext`z + 1234221 $CellContext`z^2) 
+     Log[1 - $CellContext`z]^2 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-1, 3200] $CellContext`z^(-2) (10817034 - 8081574 $CellContext`z + 
+      476779 $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[27, 320] $CellContext`z^(-2) (5358 - 4638 $CellContext`z + 
+      533 $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-729, 160] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^5 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 103680000] $CellContext`z^(-2) (810274631352 - 
+      275908385482 $CellContext`z - 114131598483 $CellContext`z^2) 
+     Log[$CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-1, 144000] $CellContext`z^(-2) (1486389138 - 
+      1373059023 $CellContext`z + 224958868 $CellContext`z^2) 
+     Log[1 - $CellContext`z] Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[3, 6400] $CellContext`z^(-2) (8963166 - 8809626 $CellContext`z + 
+      1507361 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-27, 320] $CellContext`z^(-2) (9678 - 9858 $CellContext`z + 
+      1703 $CellContext`z^2) Log[1 - $CellContext`z]^3 Log[$CellContext`z] 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     Log[$CellContext`z] PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 345600] $CellContext`z^(-2) (498357141 - 
+      189767931 $CellContext`z - 72436154 $CellContext`z^2) 
+     Log[$CellContext`z]^2 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-3, 3200] $CellContext`z^(-2) (1822218 - 2429313 $CellContext`z + 
+      641968 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[729, 64] $CellContext`z^(-2) (48 - 58 $CellContext`z + 
+      13 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z]^2 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z]^2 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 38400] $CellContext`z^(-2) (6437778 - 2467653 $CellContext`z - 
+      986732 $CellContext`z^2) Log[$CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-27, 1280] $CellContext`z^(-2) (7602 - 11022 $CellContext`z + 
+      2977 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^3 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[729, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^3 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-81, 2560] $CellContext`z^(-2) (-297 + 142 $CellContext`z + 
+      28 $CellContext`z^2) Log[$CellContext`z]^4 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[-729, 512] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^4 PolyLog[2, 1 - $CellContext`z] + 
+    Rational[243, 10240] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^5 
+     PolyLog[2, 1 - $CellContext`z] + 
+    Rational[1, 51840000] $CellContext`z^(-2) (1789400750508 - 
+      1308450205638 $CellContext`z + 113132716363 $CellContext`z^2) 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-1, 16000] $CellContext`z^(-2) (432687666 - 
+      280287106 $CellContext`z + 1234221 $CellContext`z^2) 
+     Log[1 - $CellContext`z] PolyLog[3, 1 - $CellContext`z] + 
+    Rational[3, 3200] $CellContext`z^(-2) (10817034 - 8081574 $CellContext`z + 
+      476779 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-27, 80] $CellContext`z^(-2) (5358 - 4638 $CellContext`z + 
+      533 $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[729, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^4 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[1, 864000] $CellContext`z^(-2) (11387660268 - 
+      14322823653 $CellContext`z + 3803188523 $CellContext`z^2) 
+     Log[$CellContext`z] PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-3, 3200] $CellContext`z^(-2) (8963166 - 8809626 $CellContext`z + 
+      1507361 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[81, 320] $CellContext`z^(-2) (9678 - 9858 $CellContext`z + 
+      1703 $CellContext`z^2) Log[1 - $CellContext`z]^2 Log[$CellContext`z] 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-729, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     Log[$CellContext`z] PolyLog[3, 1 - $CellContext`z] + 
+    Rational[9, 12800] $CellContext`z^(-2) (3203154 - 5914364 $CellContext`z + 
+      2001329 $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-729, 32] $CellContext`z^(-2) (48 - 58 $CellContext`z + 
+      13 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z]^2 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[2187, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z]^2 PolyLog[3, 1 - $CellContext`z] + 
+    Rational[9, 2560] $CellContext`z^(-2) (68802 - 122622 $CellContext`z + 
+      38377 $CellContext`z^2) Log[$CellContext`z]^3 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[-729, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^3 PolyLog[3, 1 - $CellContext`z] + 
+    Rational[2673, 1024] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^4 
+     PolyLog[3, 1 - $CellContext`z] + 
+    Rational[1, 48000] $CellContext`z^(-2) (900612678 - 
+      274352198 $CellContext`z - 168572407 $CellContext`z^2) 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-3, 1600] $CellContext`z^(-2) (10817034 - 8081574 $CellContext`z + 
+      476779 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[81, 80] $CellContext`z^(-2) (5358 - 4638 $CellContext`z + 
+      533 $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-729, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^3 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-3, 6400] $CellContext`z^(-2) (-11349282 + 
+      3535302 $CellContext`z + 2147353 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-81, 160] $CellContext`z^(-2) (9678 - 9858 $CellContext`z + 
+      1703 $CellContext`z^2) Log[1 - $CellContext`z] Log[$CellContext`z] 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[2187, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     Log[$CellContext`z] PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-27, 128] $CellContext`z^(-2) (-2346 + 906 $CellContext`z + 
+      329 $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[-2187, 32] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z]^2 PolyLog[4, 1 - $CellContext`z] + 
+    Rational[243, 128] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^3 
+     PolyLog[4, 1 - $CellContext`z] + 
+    Rational[1, 3200] $CellContext`z^(-2) (91338834 - 85735974 $CellContext`z + 
+      13366079 $CellContext`z^2) PolyLog[5, 1 - $CellContext`z] + 
+    Rational[-81, 40] $CellContext`z^(-2) (5358 - 4638 $CellContext`z + 
+      533 $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[5, 1 - $CellContext`z] + 
+    Rational[2187, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z]^2 
+     PolyLog[5, 1 - $CellContext`z] + 
+    Rational[243, 320] $CellContext`z^(-2) (10182 - 12202 $CellContext`z + 
+      2707 $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[5, 1 - $CellContext`z] + 
+    Rational[-2187, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     Log[$CellContext`z] PolyLog[5, 1 - $CellContext`z] + 
+    Rational[8019, 64] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z]^2 
+     PolyLog[5, 1 - $CellContext`z] + 
+    Rational[-189, 40] $CellContext`z^(-2) (-912 + 282 $CellContext`z + 
+      163 $CellContext`z^2) PolyLog[6, 1 - $CellContext`z] + 
+    Rational[-2187, 4] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[1 - $CellContext`z] 
+     PolyLog[6, 1 - $CellContext`z] + 
+    Rational[729, 16] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) Log[$CellContext`z] 
+     PolyLog[6, 1 - $CellContext`z] + 
+    Rational[8019, 8] $CellContext`z^(-2) (6 - 
+      6 $CellContext`z + $CellContext`z^2) PolyLog[7, 1 - $CellContext`z], 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8974009515740733`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"6c2a680c-3896-4f71-b705-e8841c8d305f"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1028.3999999999999`, 520.1999999999999},
+WindowMargins->{{Automatic, 24}, {8.399999999999977, Automatic}},
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"01dd1d2c-6df3-4a0b-9c31-bf4ff0fc320a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4120, 99, 352, "Input",ExpressionUUID->"aff00840-72ac-425a-beec-4d6ed613ea9d"],
+Cell[4703, 123, 468, 8, 22, "Print",ExpressionUUID->"52edfd1d-e8a9-440a-8685-984ab42b8c20"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5208, 136, 5757, 167, 544, "Input",ExpressionUUID->"aecff550-10f4-4b6c-bc98-40f984888c4c"],
+Cell[10968, 305, 590, 12, 22, "Print",ExpressionUUID->"3647fa29-a85f-472b-b9b9-f4de261703d5"]
+}, Open  ]],
+Cell[11573, 320, 5037, 115, 414, "Input",ExpressionUUID->"a0e8ee46-8379-4168-bf65-6610512efc88"],
+Cell[CellGroupData[{
+Cell[16635, 439, 4738, 137, 410, "Input",ExpressionUUID->"6598a163-2104-4f82-9953-9f18dd7aec99"],
+Cell[21376, 578, 418, 10, 22, "Print",ExpressionUUID->"21e8a5e1-1fd5-46c1-b969-f9e3098590a3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21831, 593, 4312, 105, 394, "Input",ExpressionUUID->"bab34af3-a0f9-48be-9886-a4e571085717"],
+Cell[CellGroupData[{
+Cell[26168, 702, 331, 8, 22, "Print",ExpressionUUID->"32dfa077-9d98-4ad4-a56b-df89805c0626"],
+Cell[26502, 712, 550, 16, 39, "Print",ExpressionUUID->"0e993550-47df-4f11-84d1-0bcc40ccdc0b"],
+Cell[27055, 730, 331, 8, 22, "Print",ExpressionUUID->"dfa249ba-b8c5-4a8f-abf5-40f01bf622a8"],
+Cell[27389, 740, 1479, 43, 43, "Print",ExpressionUUID->"d5500250-8d3b-4654-8cbe-7f613042b5fd"],
+Cell[28871, 785, 333, 8, 22, "Print",ExpressionUUID->"a3288684-aeab-4b7a-988d-8146ddcf5d3a"],
+Cell[29207, 795, 3494, 92, 85, "Print",ExpressionUUID->"e4ebed24-631a-442d-95b5-330075ef2e50"],
+Cell[32704, 889, 335, 8, 22, "Print",ExpressionUUID->"973fd9e9-9e9d-419b-8e09-31b7037cb87d"],
+Cell[33042, 899, 3230, 73, 43, "Print",ExpressionUUID->"37ebc9c9-e505-425c-a223-916a00f61192"],
+Cell[36275, 974, 333, 8, 22, "Print",ExpressionUUID->"9143eb9e-ae3f-4c4a-8365-e880242ed5b0"],
+Cell[36611, 984, 5327, 111, 43, "Print",ExpressionUUID->"fb24e63b-f3e8-41dc-873f-1647a766205f"],
+Cell[41941, 1097, 335, 8, 22, "Print",ExpressionUUID->"899d79f8-fa75-4536-99b1-e0726eb8ee81"],
+Cell[42279, 1107, 9131, 177, 62, "Print",ExpressionUUID->"09205bff-526c-4942-b2c2-73985685169a"],
+Cell[51413, 1286, 333, 8, 22, "Print",ExpressionUUID->"bb97d1ad-99a6-4fe3-aa48-cfb6c1eafc57"],
+Cell[51749, 1296, 15851, 282, 43, "Print",ExpressionUUID->"10390738-f70d-4100-b8b1-f5da6755713a"],
+Cell[67603, 1580, 335, 8, 22, "Print",ExpressionUUID->"20b9e9b8-0434-430b-bc3e-2d512879e865"],
+Cell[67941, 1590, 29149, 502, 43, "Print",ExpressionUUID->"6c2a680c-3896-4f71-b705-e8841c8d305f"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

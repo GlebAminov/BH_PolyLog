@@ -1,0 +1,262 @@
+{Subscript[c, 1] -> (-29 + 120*Subscript[\[Mu], 4])/30, 
+ Subscript[c, 3] -> (10707 - 15620*Subscript[\[Mu], 4] - 
+    2400*Subscript[\[Mu], 4]^2 + 3600*Subscript[\[Mu], 6])/900, 
+ Subscript[c, 5] -> (-2423427 + 5020560*Subscript[\[Mu], 4] + 
+    872000*Subscript[\[Mu], 4]^2 + 384000*Subscript[\[Mu], 4]^3 - 
+    3748800*Subscript[\[Mu], 6] - 1152000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6] + 864000*Subscript[\[Mu], 8])/216000, 
+ Subscript[c, 7] -> (2284999069 - 3843231624*Subscript[\[Mu], 4] - 
+    393560640*Subscript[\[Mu], 4]^2 + 61555200*Subscript[\[Mu], 4]^3 - 
+    64512000*Subscript[\[Mu], 4]^4 + 1265181120*Subscript[\[Mu], 6] + 
+    439488000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6] + 
+    290304000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6] - 
+    145152000*Subscript[\[Mu], 6]^2 - 944697600*Subscript[\[Mu], 8] - 
+    290304000*Subscript[\[Mu], 4]*Subscript[\[Mu], 8] + 
+    217728000*Subscript[\[Mu], 10])/54432000, 
+ Subscript[c, 9] -> (709717349481 - 2410149355880*Subscript[\[Mu], 4] + 
+    3349666670400*Subscript[\[Mu], 4]^2 + 454690368000*
+     Subscript[\[Mu], 4]^3 - 107842560000*Subscript[\[Mu], 4]^4 + 
+    25804800000*Subscript[\[Mu], 4]^5 - 2305938974400*Subscript[\[Mu], 6] - 
+    472272768000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6] + 
+    110799360000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6] - 
+    154828800000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6] + 
+    131846400000*Subscript[\[Mu], 6]^2 + 174182400000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6]^2 + 759108672000*Subscript[\[Mu], 8] + 
+    263692800000*Subscript[\[Mu], 4]*Subscript[\[Mu], 8] + 
+    174182400000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 8] - 
+    174182400000*Subscript[\[Mu], 6]*Subscript[\[Mu], 8] - 
+    566818560000*Subscript[\[Mu], 10] - 174182400000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 10] + 130636800000*Subscript[\[Mu], 12])/32659200000, 
+ Subscript[c, 11] -> (45566267139373 - 274611709920420*Subscript[\[Mu], 4] + 
+    416567256468000*Subscript[\[Mu], 4]^2 - 639540266400000*
+     Subscript[\[Mu], 4]^3 - 140058858240000*Subscript[\[Mu], 4]^4 + 
+    26748825600000*Subscript[\[Mu], 4]^5 - 3612672000000*
+     Subscript[\[Mu], 4]^6 - 506131364734800*Subscript[\[Mu], 6] + 
+    1406860001568000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6] + 
+    286454931840000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6] - 
+    90587750400000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6] + 
+    27095040000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 6] - 
+    49588640640000*Subscript[\[Mu], 6]^2 + 23267865600000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6]^2 - 48771072000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6]^2 + 12192768000000*Subscript[\[Mu], 6]^3 - 
+    484247184624000*Subscript[\[Mu], 8] - 99177281280000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 8] + 23267865600000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 8] - 32514048000000*Subscript[\[Mu], 4]^3*
+     Subscript[\[Mu], 8] + 55375488000000*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8] + 73156608000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 8] - 
+    18289152000000*Subscript[\[Mu], 8]^2 + 159412821120000*
+     Subscript[\[Mu], 10] + 55375488000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 10] + 36578304000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 10] - 36578304000000*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 10] - 119031897600000*Subscript[\[Mu], 12] - 
+    36578304000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 12] + 
+    27433728000000*Subscript[\[Mu], 14])/6858432000000, 
+ Subscript[c, 13] -> (132926730982443959 - 1534941589944995760*
+     Subscript[\[Mu], 4] + 2294550462368563200*Subscript[\[Mu], 4]^2 - 
+    481645471036416000*Subscript[\[Mu], 4]^3 + 218356291883520000*
+     Subscript[\[Mu], 4]^4 + 121936853606400000*Subscript[\[Mu], 4]^5 - 
+    18431852544000000*Subscript[\[Mu], 4]^6 + 1734082560000000*
+     Subscript[\[Mu], 4]^7 - 197720431142702400*Subscript[\[Mu], 6] + 
+    599856849313920000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6] - 
+    1381406975424000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6] - 
+    403369511731200000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6] + 
+    96295772160000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 6] - 
+    15606743040000000*Subscript[\[Mu], 4]^5*Subscript[\[Mu], 6] + 
+    506469600564480000*Subscript[\[Mu], 6]^2 + 206247550924800000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^2 - 
+    97834770432000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]^2 + 
+    39016857600000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]^2 + 
+    5584287744000000*Subscript[\[Mu], 6]^3 - 23410114560000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^3 - 
+    364414582609056000*Subscript[\[Mu], 8] + 1012939201128960000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 8] + 206247550924800000*
+     Subscript[\[Mu], 4]^2*Subscript[\[Mu], 8] - 
+    65223180288000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 8] + 
+    19508428800000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 8] - 
+    71407642521600000*Subscript[\[Mu], 6]*Subscript[\[Mu], 8] + 
+    33505726464000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8] - 70230343680000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 8] + 26336378880000000*
+     Subscript[\[Mu], 6]^2*Subscript[\[Mu], 8] + 
+    19935175680000000*Subscript[\[Mu], 8]^2 + 26336378880000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 8]^2 - 
+    348657972929280000*Subscript[\[Mu], 10] - 71407642521600000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 10] + 16752863232000000*
+     Subscript[\[Mu], 4]^2*Subscript[\[Mu], 10] - 
+    23410114560000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 10] + 
+    39870351360000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 10] + 
+    52672757760000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 10] - 26336378880000000*Subscript[\[Mu], 8]*
+     Subscript[\[Mu], 10] + 114777231206400000*Subscript[\[Mu], 12] + 
+    39870351360000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 12] + 
+    26336378880000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 12] - 
+    26336378880000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 12] - 
+    85702966272000000*Subscript[\[Mu], 14] - 26336378880000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 14] + 19752284160000000*
+     Subscript[\[Mu], 16])/4938071040000000, 
+ Subscript[c, 15] -> (-1372520515979250268459 + 415503671845264194440*
+     Subscript[\[Mu], 4] + 5975013942067926182400*Subscript[\[Mu], 4]^2 - 
+    7462339971306392832000*Subscript[\[Mu], 4]^3 + 
+    853971022436026880000*Subscript[\[Mu], 4]^4 + 
+    91053001634918400000*Subscript[\[Mu], 4]^5 - 199872490954752000000*
+     Subscript[\[Mu], 4]^6 + 24664915968000000000*Subscript[\[Mu], 4]^7 - 
+    1780324761600000000*Subscript[\[Mu], 4]^8 - 2363810048515293470400*
+     Subscript[\[Mu], 6] + 7067215424095174656000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6] - 2225202076188241920000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6] + 1345074758002483200000*Subscript[\[Mu], 4]^3*
+     Subscript[\[Mu], 6] + 938913772769280000000*Subscript[\[Mu], 4]^4*
+     Subscript[\[Mu], 6] - 170310317506560000000*Subscript[\[Mu], 4]^5*
+     Subscript[\[Mu], 6] + 18693409996800000000*Subscript[\[Mu], 4]^6*
+     Subscript[\[Mu], 6] + 461889773971718400000*Subscript[\[Mu], 6]^2 - 
+    2127366742152960000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^2 - 
+    931783572099072000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]^2 + 
+    296590978252800000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]^2 - 
+    60085960704000000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 6]^2 + 
+    105873742808064000000*Subscript[\[Mu], 6]^3 - 
+    100443697643520000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^3 + 
+    60085960704000000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]^3 - 
+    9012894105600000000*Subscript[\[Mu], 6]^4 - 304489463959761696000*
+     Subscript[\[Mu], 8] + 923779547943436800000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 8] - 2127366742152960000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 8] - 621189048066048000000*Subscript[\[Mu], 4]^3*
+     Subscript[\[Mu], 8] + 148295489126400000000*Subscript[\[Mu], 4]^4*
+     Subscript[\[Mu], 8] - 24034384281600000000*Subscript[\[Mu], 4]^5*
+     Subscript[\[Mu], 8] + 1559926369738598400000*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8] + 635242456848384000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 8] - 301331092930560000000*
+     Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]*Subscript[\[Mu], 8] + 
+    120171921408000000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8] + 25799409377280000000*Subscript[\[Mu], 6]^2*
+     Subscript[\[Mu], 8] - 108154729267200000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6]^2*Subscript[\[Mu], 8] - 54983884741632000000*
+     Subscript[\[Mu], 8]^2 + 25799409377280000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 8]^2 - 54077364633600000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 8]^2 + 40558023475200000000*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8]^2 - 561198457217946240000*Subscript[\[Mu], 10] + 
+    1559926369738598400000*Subscript[\[Mu], 4]*Subscript[\[Mu], 10] + 
+    317621228424192000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 10] - 
+    100443697643520000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 10] + 
+    30042980352000000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 10] - 
+    109967769483264000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 10] + 
+    51598818754560000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 10] - 108154729267200000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 10] + 40558023475200000000*
+     Subscript[\[Mu], 6]^2*Subscript[\[Mu], 10] + 
+    61400341094400000000*Subscript[\[Mu], 8]*Subscript[\[Mu], 10] + 
+    81116046950400000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 8]*
+     Subscript[\[Mu], 10] - 20279011737600000000*Subscript[\[Mu], 10]^2 - 
+    536933278311091200000*Subscript[\[Mu], 12] - 109967769483264000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 12] + 25799409377280000000*
+     Subscript[\[Mu], 4]^2*Subscript[\[Mu], 12] - 
+    36051576422400000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 12] + 
+    61400341094400000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 12] + 
+    81116046950400000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 12] - 40558023475200000000*Subscript[\[Mu], 8]*
+     Subscript[\[Mu], 12] + 176756936057856000000*Subscript[\[Mu], 14] + 
+    61400341094400000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 14] + 
+    40558023475200000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 14] - 
+    40558023475200000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 14] - 
+    131982568058880000000*Subscript[\[Mu], 16] - 40558023475200000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 16] + 30418517606400000000*
+     Subscript[\[Mu], 18])/7604629401600000000, 
+ Subscript[c, 17] -> (-252910104699327287605253 + 345242177184816374596872*
+     Subscript[\[Mu], 4] + 278386792423549746869760*Subscript[\[Mu], 4]^2 - 
+    832519741377607383782400*Subscript[\[Mu], 4]^3 + 
+    716482239904248288768000*Subscript[\[Mu], 4]^4 - 
+    17847644189788385280000*Subscript[\[Mu], 4]^5 - 
+    33176735568558489600000*Subscript[\[Mu], 4]^6 + 
+    14067502516666368000000*Subscript[\[Mu], 4]^7 - 
+    1459510239559680000000*Subscript[\[Mu], 4]^8 + 
+    85455588556800000000*Subscript[\[Mu], 4]^9 + 29916264372859021999680*
+     Subscript[\[Mu], 6] + 860402007657781370265600*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6] - 1611865433802180851712000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6] + 245943654461575741440000*Subscript[\[Mu], 4]^3*
+     Subscript[\[Mu], 6] + 32779080588570624000000*Subscript[\[Mu], 4]^4*
+     Subscript[\[Mu], 6] - 86344916092452864000000*Subscript[\[Mu], 4]^5*
+     Subscript[\[Mu], 6] + 12431117647872000000000*Subscript[\[Mu], 4]^6*
+     Subscript[\[Mu], 6] - 1025467062681600000000*Subscript[\[Mu], 4]^7*
+     Subscript[\[Mu], 6] + 254419755267426287616000*Subscript[\[Mu], 6]^2 - 
+    160214549485553418240000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^2 + 
+    145268073864268185600000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]^2 + 
+    135203583278776320000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]^2 - 
+    30655857151180800000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 6]^2 + 
+    4037776559308800000000*Subscript[\[Mu], 4]^5*Subscript[\[Mu], 6]^2 - 
+    51056801811671040000000*Subscript[\[Mu], 6]^3 - 
+    44725611460755456000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^3 + 
+    21354550434201600000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]^3 - 
+    5768252227584000000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]^3 - 
+    1807986557583360000000*Subscript[\[Mu], 6]^4 + 
+    2163094585344000000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^4 - 
+    170194323493101129868800*Subscript[\[Mu], 8] + 
+    508839510534852575232000*Subscript[\[Mu], 4]*Subscript[\[Mu], 8] - 
+    160214549485553418240000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 8] + 
+    96845382576178790400000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 8] + 
+    67601791639388160000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 8] - 
+    12262342860472320000000*Subscript[\[Mu], 4]^5*Subscript[\[Mu], 8] + 
+    1345925519769600000000*Subscript[\[Mu], 4]^6*Subscript[\[Mu], 8] + 
+    66512127451927449600000*Subscript[\[Mu], 6]*Subscript[\[Mu], 8] - 
+    306340810870026240000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8] - 134176834382266368000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 8] + 42709100868403200000000*
+     Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]*Subscript[\[Mu], 8] - 
+    8652378341376000000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8] + 22868728446541824000000*Subscript[\[Mu], 6]^2*
+     Subscript[\[Mu], 8] - 21695838691000320000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 6]^2*Subscript[\[Mu], 8] + 12978567512064000000000*
+     Subscript[\[Mu], 4]^2*Subscript[\[Mu], 6]^2*Subscript[\[Mu], 8] - 
+    2595713502412800000000*Subscript[\[Mu], 6]^3*Subscript[\[Mu], 8] + 
+    56157349310589542400000*Subscript[\[Mu], 8]^2 + 
+    22868728446541824000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 8]^2 - 
+    10847919345500160000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 8]^2 + 
+    4326189170688000000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 8]^2 + 
+    1857557475164160000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 8]^2 - 
+    7787140507238400000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 8]^2 + 973392563404800000000*Subscript[\[Mu], 8]^3 - 
+    21923241405102842112000*Subscript[\[Mu], 10] + 
+    66512127451927449600000*Subscript[\[Mu], 4]*Subscript[\[Mu], 10] - 
+    153170405435013120000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 10] - 
+    44725611460755456000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 10] + 
+    10677275217100800000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 10] - 
+    1730475668275200000000*Subscript[\[Mu], 4]^5*Subscript[\[Mu], 10] + 
+    112314698621179084800000*Subscript[\[Mu], 6]*Subscript[\[Mu], 10] + 
+    45737456893083648000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 10] - 21695838691000320000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 10] + 8652378341376000000000*
+     Subscript[\[Mu], 4]^3*Subscript[\[Mu], 6]*Subscript[\[Mu], 10] + 
+    1857557475164160000000*Subscript[\[Mu], 6]^2*Subscript[\[Mu], 10] - 
+    7787140507238400000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]^2*
+     Subscript[\[Mu], 10] - 7917679402795008000000*Subscript[\[Mu], 8]*
+     Subscript[\[Mu], 10] + 3715114950328320000000*Subscript[\[Mu], 4]*
+     Subscript[\[Mu], 8]*Subscript[\[Mu], 10] - 7787140507238400000000*
+     Subscript[\[Mu], 4]^2*Subscript[\[Mu], 8]*Subscript[\[Mu], 10] + 
+    5840355380428800000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 8]*
+     Subscript[\[Mu], 10] + 2210412279398400000000*Subscript[\[Mu], 10]^2 + 
+    2920177690214400000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 10]^2 - 
+    40406288919692129280000*Subscript[\[Mu], 12] + 
+    112314698621179084800000*Subscript[\[Mu], 4]*Subscript[\[Mu], 12] + 
+    22868728446541824000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 12] - 
+    7231946230333440000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 12] + 
+    2163094585344000000000*Subscript[\[Mu], 4]^4*Subscript[\[Mu], 12] - 
+    7917679402795008000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 12] + 
+    3715114950328320000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 12] - 7787140507238400000000*Subscript[\[Mu], 4]^2*
+     Subscript[\[Mu], 6]*Subscript[\[Mu], 12] + 2920177690214400000000*
+     Subscript[\[Mu], 6]^2*Subscript[\[Mu], 12] + 4420824558796800000000*
+     Subscript[\[Mu], 8]*Subscript[\[Mu], 12] + 5840355380428800000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 8]*Subscript[\[Mu], 12] - 
+    2920177690214400000000*Subscript[\[Mu], 10]*Subscript[\[Mu], 12] - 
+    38659196038398566400000*Subscript[\[Mu], 14] - 
+    7917679402795008000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 14] + 
+    1857557475164160000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 14] - 
+    2595713502412800000000*Subscript[\[Mu], 4]^3*Subscript[\[Mu], 14] + 
+    4420824558796800000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 14] + 
+    5840355380428800000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 6]*
+     Subscript[\[Mu], 14] - 2920177690214400000000*Subscript[\[Mu], 8]*
+     Subscript[\[Mu], 14] + 12726499396165632000000*Subscript[\[Mu], 16] + 
+    4420824558796800000000*Subscript[\[Mu], 4]*Subscript[\[Mu], 16] + 
+    2920177690214400000000*Subscript[\[Mu], 4]^2*Subscript[\[Mu], 16] - 
+    2920177690214400000000*Subscript[\[Mu], 6]*Subscript[\[Mu], 16] - 
+    9502744900239360000000*Subscript[\[Mu], 18] - 2920177690214400000000*
+     Subscript[\[Mu], 4]*Subscript[\[Mu], 18] + 2190133267660800000000*
+     Subscript[\[Mu], 20])/547533316915200000000}
