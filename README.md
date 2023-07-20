@@ -1,8 +1,12 @@
 # BH_PolyLog
 Mathematica Program to analytically compute (A)dS QNM frequencies.
+
 To compute the dS QNM frequencies - use the folder "dS General n,l,s".
+
 To compute the AdS QNM frequencies with negative real part - use "AdS General n,l,s negative".
+
 To compute the AdS QNM frequencies with positive real part - use "AdS General n,l,s positive".
+
 In each of the three folders, there is the "Executable files" subfolder. To proceed with the computation, the following steps are recommended:
 
 1. Copy all the files from the "Executable files" subfolder into a new folder.
