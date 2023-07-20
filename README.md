@@ -10,7 +10,7 @@ To compute the AdS QNM frequencies with positive real part - use "AdS General n,
 
 In each of the three folders, there is the "Executable files" subfolder. To proceed with the computation, the following steps are recommended:
 
-1. Copy all the files from the "Executable files" subfolder into a new folder.
+1. Copy all the files from the "Executable files" subfolder into a new folder (after you download the program to your computer).
 
 2. Open the "Nf4_exe.nb" file - it will run all other files for you (except the "SW_to_Heun.nb" file, see step 9).
 
